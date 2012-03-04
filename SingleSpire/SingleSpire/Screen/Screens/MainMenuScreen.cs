@@ -47,7 +47,7 @@ namespace SpireVenture.Screen.Screens
                 switch (selectedEntry)
                 {
                     case (int)MainMenuEntry.Start:
-                        //ScreenManager.AddScreen(new ProfileScreen(this));
+                        ScreenManager.AddScreen(new ProfileScreen(this));
                         break;
                     case (int)MainMenuEntry.Options:
                         ScreenManager.AddScreen(new OptionsScreen(this));

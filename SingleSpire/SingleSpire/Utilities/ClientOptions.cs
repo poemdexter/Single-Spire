@@ -13,13 +13,11 @@ namespace SpireVenture.Utilities
         public static int ResolutionWidth { get; private set; }
         public static bool Fullscreen { get; private set; }
         static Dictionary<string, string> optionsDict;
-        static private bool changed = false;
 
         public static void Initialize()
         {
             // load from flat file
-            String documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            String clientPath = Path.Combine(documentsPath, "SingleSpire");
+            String clientPath = Directory.GetCurrentDirectory();
             String optionsFilePath = Path.Combine(clientPath, "options.txt");
 
             optionsDict = new Dictionary<string, string>();
@@ -78,11 +76,8 @@ namespace SpireVenture.Utilities
         }
 
         public static void Save()
-        {
-            if (changed)
-            {
-                String documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                String clientPath = Path.Combine(documentsPath, "SpireVenture");
+        { 
+                String clientPath = Directory.GetCurrentDirectory();
                 String optionsFilePath = Path.Combine(clientPath, "options.txt");
 
                 if (!Directory.Exists(clientPath))
@@ -98,14 +93,10 @@ namespace SpireVenture.Utilities
 
                 using (StreamWriter outfile = new StreamWriter(optionsFilePath))
                     outfile.Write(sb.ToString());
-
-                changed = false;
-            }
         }
 
         public static void SetResolution(int H, int W)
         {
-            changed = true;
             ResolutionHeight = H;
             ResolutionWidth = W;
             if (optionsDict.ContainsKey("resolutionH"))
@@ -116,16 +107,17 @@ namespace SpireVenture.Utilities
                 optionsDict["resolutionW"] = Convert.ToString(W);
             else
                 optionsDict.Add("resolutionW", Convert.ToString(W));
+            Save();
         }
 
         public static void SetFullscreen(bool full)
         {
-            changed = true;
             Fullscreen = full;
             if (optionsDict.ContainsKey("fullscreen"))
                 optionsDict["fullscreen"] = Convert.ToString(full);
             else
                 optionsDict.Add("fullscreen", Convert.ToString(full));
+            Save();
         }
     }
 }

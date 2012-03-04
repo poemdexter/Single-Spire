@@ -115,10 +115,15 @@
     <Compile Include="Screen\Framework\GameScreen.cs" />
     <Compile Include="Screen\Framework\InputState.cs" />
     <Compile Include="Screen\Framework\MenuEntry.cs" />
+    <Compile Include="Screen\Screens\MainGameScreen.cs" />
     <Compile Include="Screen\Screens\MainMenuScreen.cs" />
     <Compile Include="Screen\Screens\OptionsScreen.cs" />
+    <Compile Include="Screen\Screens\PopUpWarningScreen.cs" />
+    <Compile Include="Screen\Screens\ProfileScreen.cs" />
     <Compile Include="Utilities\ClientOptions.cs" />
+    <Compile Include="Utilities\FileGrabber.cs" />
     <Compile Include="Utilities\KeyboardStringBuilder.cs" />
+    <Compile Include="Utilities\PlayerSave.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
