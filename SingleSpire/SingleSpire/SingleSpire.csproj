@@ -108,6 +108,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Action.cs" />
+    <Compile Include="EntityFramework\ActionArgs.cs" />
+    <Compile Include="EntityFramework\Args\MoveArgs.cs" />
+    <Compile Include="EntityFramework\Actions\Move.cs" />
+    <Compile Include="EntityFramework\Component.cs" />
+    <Compile Include="EntityFramework\Components\Movement.cs" />
+    <Compile Include="EntityFramework\Entity.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
